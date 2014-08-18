@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IronAlumni</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app='ironalumni'>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<button ng-click='signout()'>logout</button>
+<div ng-view>
+  <%= yield %>
+</div>
+
+<%= javascript_include_tag 'application' %>
+</body>
+</html>

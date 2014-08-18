@@ -1,0 +1,4 @@
+asset 'angular', '1.2.22'
+asset 'angular-route'
+asset 'angular-resource'
+asset 'angular-devise'
