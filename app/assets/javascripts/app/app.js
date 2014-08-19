@@ -1,14 +1,20 @@
 angular
-  .module('ironalumni', ['ngRoute', 'Devise'])
+  .module('ironalumni', ['ngRoute', 'ngResource', 'Devise'])
   .config(['$routeProvider', 'AuthProvider', function($routeProvider, AuthProvider) {
     'use strict';
 
     $routeProvider.when('/signup', {
-      controller: 'UserCtrl',
+      controller: 'MemberCtrl',
       templateUrl: '../templates/signup.html'
     }).when('/signin', {
-      controller: 'UserCtrl',
+      controller: 'MemberCtrl',
       templateUrl: '../templates/signin.html'
+    }).when('/members/:id', {
+      controller: 'MemberDetailCtrl',
+      templateUrl: '../templates/memberDetailTpl.html'
+    }).when('/members', {
+      controller: 'MemberListCtrl',
+      templateUrl: '../templates/memberListTpl.html'
     }).otherwise({
       redirectTo: '/signup'
     });
@@ -17,12 +23,19 @@ angular
     AuthProvider.logoutPath('/members/sign_out.json');
     AuthProvider.registerPath('/members.json');
   }])
-  .run(['$rootScope', 'Auth', function($rootScope, Auth) {
+  .run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
+    Auth.currentUser().then(function(member) {
+      $rootScope.member = member;
+    });
+
+    $rootScope.goto = function(path) {
+      $location.path(path);
+    };
+
     $rootScope.signout = function() {
-      Auth.logout().then(function(oldUser) {
-        console.log(oldUser);
-      }, function(error) {
-        console.log(error);
+      Auth.logout().finally(function(oldUser) {
+        $rootScope.member = null;
+        $location.path('/');
       });
     };
   }]);

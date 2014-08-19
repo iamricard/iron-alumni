@@ -6,13 +6,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app='ironalumni'>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<button ng-click='signout()'>logout</button>
-<div ng-view>
-  <%= yield %>
-</div>
+  <nav class="navbar">
+    <div class="container">
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signin")'>sign in</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signup")'>sign up</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/members")'>members</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
+      <span ng-if='member' class='navbar-item pull-right'>
+        signed in as <a href='javascript:;' ng-click='goto("/members/" + member.id)'>{{ member.email }}</a>
+      </span>
+    </div>
+  </nav>
+  <section class='container'>
+    <div  ng-view>
+      <%= yield %>
+    </div>
 
-<%= javascript_include_tag 'application' %>
+  </section>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
