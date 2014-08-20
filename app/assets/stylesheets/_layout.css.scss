@@ -1,0 +1,6 @@
+.container {
+  height: 100%; }
+.content { @include span-columns(9); }
+.side-panel {
+  height: 100%;
+  @include span-columns(3); }

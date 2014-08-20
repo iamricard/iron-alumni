@@ -3,10 +3,16 @@
  */
 $unit: 1.5rem;
 
-@import "bourbon";
+@import 'variables';
+@import 'bourbon';
+@import 'neat/neat';
+@import 'bitters/base';
+@import 'refills/import';
+@import 'side-panel';
+@import 'layout';
 
 * { box-sizing: border-box; }
-
+html { height: 100%; }
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: $unit;
@@ -15,38 +21,5 @@ body {
   background-color: lighten(#000, 97%);
   margin: 0;
   padding: 0;
+  height: 100%;
 }
-
-.container {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 1200px;
-}
-
-.navbar {
-  width: 100%;
-  height: $unit * 2;
-  background-color: lighten(#000, 95%);
-  border-bottom: 1px solid lighten(#000, 70%);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, .3);
-
-  a {
-    color: #111;
-    text-decoration: none;
-  }
-}
-
-.navbar-item {
-  margin: 0;
-  transition: background-color .1s ease-in-out;
-  display: inline-block;
-  padding: $unit / 2;
-  color: #555;
-
-  a { font-weight: bold; }
-}
-
-.navbar-link:hover { background-color: lighten(#000, 80%); }
-
-.pull-right { float: right; }
-.pull-left { float: left; }

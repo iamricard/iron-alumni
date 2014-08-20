@@ -1,10 +1,9 @@
 angular
   .module('ironalumni')
-  .controller('MemberDetailCtrl', ['$scope', '$rootScope', 'Member', function($scope, $rootScope, Member) {
+  .controller('MemberDetailCtrl', ['$scope', '$routeParams', 'Member', function($scope, $routeParams, Member) {
 
-    $scope.member = Member.get({id: $rootScope.member.id});
+    $scope.member = Member.get({id: $routeParams.id});
     $scope.updateAttrs = function(member) {
-      console.log(member);
       member.$update().then(function(member) {
         console.log(member);
       }, function(err) {

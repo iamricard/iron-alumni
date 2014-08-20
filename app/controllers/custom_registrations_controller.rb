@@ -1,6 +1,6 @@
 class CustomRegistrationsController < Devise::RegistrationsController
-   # PUT /manage_users/1
-  # PUT /manage_users/1.json
+  before_action :authenticate_member!
+
   def update
     @member = Member.find(params[:id])
 
