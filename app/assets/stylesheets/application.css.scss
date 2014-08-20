@@ -3,10 +3,10 @@
  */
 $unit: 1.5rem;
 
-@import 'variables';
 @import 'bourbon';
 @import 'neat/neat';
 @import 'bitters/base';
+@import 'variables';
 @import 'refills/import';
 @import 'side-panel';
 @import 'layout';
@@ -22,4 +22,11 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+.card-image {
+  max-height: 230px !important;
+  height: 230px;
+  width: 100%;
+  margin: 0 auto;
 }

@@ -7,21 +7,15 @@
 </head>
 <body ng-app='ironalumni'>
   <!-- <nav class="navbar">
-    <div class="container">
       <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signin")'>sign in</a>
       <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signup")'>sign up</a>
       <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/members")'>members</a>
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
-      <span ng-if='member' class='navbar-item pull-right'>
-        signed in as <a href='javascript:;' ng-click='goto("/members/" + member.id)'>{{ member.email }}</a>
-      </span>
-    </div>
   </nav> -->
   <div class="container">
     <nav class="side-panel">
       <div class="card">
         <div class="card-image">
-          <img data-src="holder.js/175x175/auto/textmode:exact" alt="">
+          <img gravatar-image data-gravatar-email='{{ member.email }}' alt="">
         </div>
         <div class="card-header">
           {{ member.email }}
@@ -43,11 +37,17 @@
           <a href='javascript:;' ng-click='goto("/members")'>members</a>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header">
+          <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
+        </div>
+      </div>
     </nav>
     <ng-view class='content' />
   </div>
 
-  <%= javascript_include_tag 'application' %>
+  <script src='//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js'></script>
   <script src='//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.js'></script>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
