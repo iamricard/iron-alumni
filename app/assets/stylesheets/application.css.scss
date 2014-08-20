@@ -1,5 +1,25 @@
 /*
  *= require_self
  */
+$unit: 1.5rem;
 
-@import "bourbon";
+@import 'variables';
+@import 'bourbon';
+@import 'neat/neat';
+@import 'bitters/base';
+@import 'refills/import';
+@import 'side-panel';
+@import 'layout';
+
+* { box-sizing: border-box; }
+html { height: 100%; }
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: $unit;
+  font-size: 100%;
+  color: #333;
+  background-color: lighten(#000, 97%);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

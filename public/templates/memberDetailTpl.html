@@ -1,0 +1,23 @@
+<form ng-submit='updateAttrs(member)'>
+  <div class="form-group">
+    <input type="text" ng-model='member.name' placeholder='name' />
+  </div>
+
+  <div class="form-group">
+    <input type="text" ng-model='member.last_name' placeholder='surname' />
+  </div>
+
+  <div class="form-group">
+    <input type="text" ng-model='member.email' placeholder='email' />
+  </div>
+
+  <div class="form-group">
+    <textarea ng-model='member.summary' placeholder='summary'></textarea>
+  </div>
+
+  <div class="form-group">
+    <input type="password" ng-model='member.current_password' placeholder='password'>
+  </div>
+
+  <input type='submit' value='update' />
+</form>

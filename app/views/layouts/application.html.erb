@@ -6,13 +6,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app='ironalumni'>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<button ng-click='signout()'>logout</button>
-<div ng-view>
-  <%= yield %>
-</div>
+  <!-- <nav class="navbar">
+    <div class="container">
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signin")'>sign in</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signup")'>sign up</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/members")'>members</a>
+      <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
+      <span ng-if='member' class='navbar-item pull-right'>
+        signed in as <a href='javascript:;' ng-click='goto("/members/" + member.id)'>{{ member.email }}</a>
+      </span>
+    </div>
+  </nav> -->
+  <div class="container">
+    <nav class="side-panel">
+      <div class="card">
+      <div class="card-image">
+        <img data-src="holder.js/175x175/auto/textmode:exact" alt="">
+      </div>
+      <div class="card-header">
+        {{ member.email }}
+      </div>
+      <div class="card-copy">
+        {{ member.name }} <br />
+        {{ member.summary | limitTo: 200 }}
+      </div>
+      <div class="card-stats">
+        <ul>
+          <li>98<span>Items</span></li>
+          <li>298<span>Things</span></li>
+          <li>923<span>Objects</span></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <ng-view class='content' />
+  </div>
 
-<%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.js'></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 angular
   .module('ironalumni')
-  .controller('UserCtrl', ['$scope', 'Auth', function($scope, Auth) {
+  .controller('MemberCtrl', ['$scope', '$rootScope', '$location', 'Auth', function($scope, $rootScope, $location, Auth) {
     'use strict';
 
     $scope.email = '';
@@ -14,9 +14,11 @@ angular
 
       Auth.login(credentials)
         .then(function(loggedInUser) {
-          console.log(loggedInUser);
+          $rootScope.member = loggedInUser;
+          $location.path('/');
         }, function(err) {
           console.log(err);
+          // handle error
         });
     };
 
@@ -28,10 +30,10 @@ angular
 
       Auth.register(credentials)
         .then(function(registeredUser) {
-          console.log(registeredUser);
-          return;
+          // handle successful registration
         }, function(err) {
           console.log(err);
+          // handle error
         });
     };
   }]);
