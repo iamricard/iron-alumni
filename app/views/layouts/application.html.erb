@@ -20,24 +20,29 @@
   <div class="container">
     <nav class="side-panel">
       <div class="card">
-      <div class="card-image">
-        <img data-src="holder.js/175x175/auto/textmode:exact" alt="">
+        <div class="card-image">
+          <img data-src="holder.js/175x175/auto/textmode:exact" alt="">
+        </div>
+        <div class="card-header">
+          {{ member.email }}
+        </div>
+        <div class="card-copy">
+          {{ member.name }} <br />
+          {{ member.summary | limitTo: 200 }}
+        </div>
+        <div class="card-stats">
+          <ul>
+            <li>98<span>Items</span></li>
+            <li>298<span>Things</span></li>
+            <li>923<span>Objects</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="card-header">
-        {{ member.email }}
+      <div class="card">
+        <div class="card-header">
+          <a href='javascript:;' ng-click='goto("/members")'>members</a>
+        </div>
       </div>
-      <div class="card-copy">
-        {{ member.name }} <br />
-        {{ member.summary | limitTo: 200 }}
-      </div>
-      <div class="card-stats">
-        <ul>
-          <li>98<span>Items</span></li>
-          <li>298<span>Things</span></li>
-          <li>923<span>Objects</span></li>
-        </ul>
-      </div>
-    </div>
     </nav>
     <ng-view class='content' />
   </div>
