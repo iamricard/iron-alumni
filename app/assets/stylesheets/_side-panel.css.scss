@@ -3,6 +3,6 @@
 
   .card {
     @include calc(width, '100% - #{$base-unit}');
-    margin: $base-unit / 4 $base-unit / 2;
+    margin: $base-unit / 2 $base-unit / 2 0;
   }
 }
