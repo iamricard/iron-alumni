@@ -1,5 +1,5 @@
 .side-panel {
-  background-color: #1B1F20;
+  // background-color: #1B1F20;
 
   .card {
     @include calc(width, '100% - #{$base-unit}');
