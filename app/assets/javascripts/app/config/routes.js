@@ -16,11 +16,14 @@ angular
       controller: 'MemberListCtrl',
       templateUrl: '../templates/memberListTpl.html'
     }).when('/courses', {
-      controller: 'CourseCtrl',
+      controller: 'CourseListCtrl',
       templateUrl: '../templates/courseListTpl.html'
     }).when('/courses/new', {
-      controller: 'CourseCtrl',
+      controller: 'CourseFormCtrl',
       templateUrl: '../templates/courseFormTpl.html'
+    }).when('/courses/:id', {
+      controller: 'CourseDetailCtrl',
+      templateUrl: '../templates/courseDetailTpl.html'
     }).otherwise({
       redirectTo: '/signin'
     });

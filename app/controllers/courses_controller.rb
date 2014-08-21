@@ -5,15 +5,24 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    @course = Course.find_by(id: params[:id]).to_json(:include => :members)
+    respond_to do |format|
+      if @course
+        format.json { render status: 200, json: @course }
+      else
+        format.json { render status: 404, json: 'Course not found' }
+      end
+    end
+  end
+
   def create
     @course = Course.new course_params
     respond_to do |format|
-      format.json do
-        if @course.save
-          render status: 200, json: @course
-        else
-          render status: 422, json: 'Unacceptable request'
-        end
+      if @course.save
+        format.json { render status: 200, json: @course }
+      else
+        format.json { render status: 422, json: 'Unacceptable request' }
       end
     end
   end
@@ -22,4 +31,5 @@ class CoursesController < ApplicationController
   def course_params
     params.require(:course).permit(:type, :city, :start_date, :end_date)
   end
+
 end
