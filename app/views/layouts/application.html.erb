@@ -6,11 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app='ironalumni'>
-  <!-- <nav class="navbar">
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signin")'>sign in</a>
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signup")'>sign up</a>
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/members")'>members</a>
-  </nav> -->
+
   <div class="container">
     <nav class="side-panel">
       <div class="card">
@@ -33,13 +29,13 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-header">
-          <a href='javascript:;' ng-click='goto("/members")'>members</a>
+        <div class="card-header" ng-click='goto("/members")'>
+          <a href='javascript:;'>members</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-header">
-          <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
+        <div class="card-header" ng-click='signout()'>
+          <a class='navbar-item navbar-link' href='javascript:;'>logout</a>
         </div>
       </div>
     </nav>
