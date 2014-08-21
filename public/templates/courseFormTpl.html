@@ -1,4 +1,4 @@
-<form ng-submit='updateAttrs(course)'>
+<form ng-submit='newCourse()'>
   <div class="form-group">
     <select ng-model='course.city'>
       <option value='barcelona'>Barcelona</option>
@@ -8,7 +8,7 @@
   </div>
 
   <div class="form-group">
-    <select ng-model='course.type'>
+    <select ng-model='course.course_type'>
       <option value='web'>Web</option>
       <option value='mobile'>Mobile</option>
     </select>
