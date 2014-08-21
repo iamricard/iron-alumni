@@ -1,0 +1,5 @@
+<ul ng-repeat='course in courses'>
+  <li>
+    <a href="javascript:;" ng-click='goto("/courses/" + course.id)' ng-disabled>{{ course.course_type }} - {{ course.city }}</a>
+  </li>
+</ul>

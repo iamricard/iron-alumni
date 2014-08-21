@@ -15,8 +15,14 @@ angular
     }).when('/members', {
       controller: 'MemberListCtrl',
       templateUrl: '../templates/memberListTpl.html'
+    }).when('/courses', {
+      controller: 'CourseCtrl',
+      templateUrl: '../templates/courseListTpl.html'
+    }).when('/courses/new', {
+      controller: 'CourseCtrl',
+      templateUrl: '../templates/courseFormTpl.html'
     }).otherwise({
-      redirectTo: '/signup'
+      redirectTo: '/signin'
     });
 
     AuthProvider.loginPath('/members/sign_in.json');

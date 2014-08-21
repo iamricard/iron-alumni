@@ -29,3 +29,8 @@ Member.create!(name: 'ricard',
               email: "ricard.solecasas@gmail.com",
               password: "12345678",
               confirmed_at: Time.now)
+Member.create!(name: 'elena',
+              last_name: 'torro',
+              email: "elenatorro@gmail.com",
+              password: "12345678",
+              confirmed_at: Time.now)

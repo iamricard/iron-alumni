@@ -6,40 +6,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app='ironalumni'>
-  <!-- <nav class="navbar">
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signin")'>sign in</a>
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/signup")'>sign up</a>
-      <a class='navbar-item navbar-link' href='javascript:;' ng-click='goto("/members")'>members</a>
-  </nav> -->
+
   <div class="container">
     <nav class="side-panel">
       <div class="card">
-        <div class="card-image">
+        <div class="card-image" ng-click='goto("/members/" + member.id)'>
           <img gravatar-image data-gravatar-email='{{ member.email }}' alt="">
         </div>
-        <div class="card-header">
-          {{ member.email }}
+        <div class="card-header" ng-click='goto("/members/" + member.id)'>
+          {{ member.name | uppercase }} {{ member.last_name | uppercase }}
         </div>
         <div class="card-copy">
-          {{ member.name }} <br />
           {{ member.summary | limitTo: 200 }}
         </div>
         <div class="card-stats">
           <ul>
-            <li>98<span>Items</span></li>
-            <li>298<span>Things</span></li>
-            <li>923<span>Objects</span></li>
+            <li>{{ member.courses.length || 0 }}<span>Courses</span></li>
+            <li>{{ member.projects.length || 0 }}<span>Projects</span></li>
           </ul>
         </div>
       </div>
       <div class="card">
-        <div class="card-header">
-          <a href='javascript:;' ng-click='goto("/members")'>members</a>
+        <div class="card-header" ng-click='goto("/members")'>
+          <a href='javascript:;'>members</a>
         </div>
       </div>
       <div class="card">
-        <div class="card-header">
-          <a class='navbar-item navbar-link' href='javascript:;' ng-click='signout()'>logout</a>
+        <div ng-if='member' class="card-header" ng-click='signout()'>
+          <a href='javascript:;'>sign out</a>
+        </div>
+        <div ng-if='!member' class="card-header" ng-click='goto("/signin")'>
+          <a href='javascript:;'>sign in</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" ng-click='goto("/courses")'>
+          <a href='javascript:;'>courses</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" ng-click='goto("/courses/new")'>
+          <a href='javascript:;'>new course</a>
         </div>
       </div>
     </nav>
