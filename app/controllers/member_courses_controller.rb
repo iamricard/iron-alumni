@@ -1,0 +1,2 @@
+class MemberCoursesController < ApplicationController
+end

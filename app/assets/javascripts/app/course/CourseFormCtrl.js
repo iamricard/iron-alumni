@@ -1,8 +1,8 @@
 angular
   .module('ironalumni')
-  .controller('CourseCtrl', ['$scope', 'Course', function($scope, Course) {
+  .controller('CourseFormCtrl', ['$scope', '$routeParams', 'Course', function($scope, $routeParams, Course) {
     'use strict';
-    $scope.courses = Course.query();
+
     $scope.newCourse = function() {
       var course = new Course($scope.course);
       course.$save().then(function(course) {

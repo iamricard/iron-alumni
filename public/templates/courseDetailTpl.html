@@ -1,0 +1,7 @@
+<p>Course type: {{ course.course_type }}</p>
+<p>Course location: {{ course.city }}</p>
+<p>Dates: {{ course.start_date | date: 'longDate' }} - {{ course.end_date | date: 'longDate' }}</p>
+<input type='text' placeholder="new member's email" ng-model='new_member'><button ng-click='addMember()'>add</button>
+<ul ng-repeat='(key, value) in course.members'>
+  <li>{{ value }}</li>
+</ul>

@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
   def index
-    @members = Member.all
+    @members = Member.filter(params.slice(:email))
     respond_to do |format|
       format.json { render json: @members }
     end
