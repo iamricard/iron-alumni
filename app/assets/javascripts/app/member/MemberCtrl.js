@@ -6,22 +6,6 @@ angular
     $scope.email = '';
     $scope.password = '';
 
-    $scope.signin = function() {
-      var credentials = {
-        email: $scope.email,
-        password: $scope.password
-      };
-
-      Auth.login(credentials)
-        .then(function(loggedInUser) {
-          $rootScope.member = loggedInUser;
-          $location.path('/');
-        }, function(err) {
-          console.log(err);
-          // handle error
-        });
-    };
-
     $scope.register = function() {
       var credentials = {
         email: $scope.email,
