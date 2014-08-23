@@ -2,6 +2,7 @@
   <%= stylesheet_link_tag 'application.css', media: 'screen' %>
 <% end -%>
 <div ng-app='ironalumni' class="container">
+  <%= render 'message' %>
   <nav class="side-panel">
     <div class="card">
       <div class="card-image" ng-click='goto("/members/" + member.id)'>
@@ -41,7 +42,9 @@
       </div>
     </div>
   </nav>
-  <ng-view class='content' />
+  <div class="main-container">
+    <ng-view class='content' />
+  </div>
 </div>
 
 <script src='//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js'></script>

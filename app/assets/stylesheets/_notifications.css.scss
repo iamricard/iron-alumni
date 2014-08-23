@@ -1,0 +1,33 @@
+.animate {
+  @include transition(315ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all);
+}
+.animate.ng-enter {
+  top: -($unit * 2)
+}
+.animate.ng-leave {
+  top: 0;
+}
+.animate.ng-enter.ng-enter-active {
+  top: 0;
+}
+.animate.ng-leave.ng-leave-active {
+  top: -($unit * 2)
+}
+
+.notification {
+  height: $unit * 2;
+  padding: $unit / 2;
+  position: fixed;
+  z-index: 1;
+  color: $notification-base-color;
+  width: 100%;
+
+  .close {
+    float: right;
+    color: $base-font-color; }
+}
+
+.error   { background-color: $error; }
+.info    { background-color: $info; }
+.success { background-color: $success; }
+.alert   { background-color: $alert; }

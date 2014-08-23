@@ -1,0 +1,4 @@
+<section ng-if='notification' class="animate notification {{ notification.type }}">
+  {{ notification.message }}
+  <a class='close' href='javascript:;' ng-click='dismissNotification()'>x</a>
+</section>

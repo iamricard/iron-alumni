@@ -1,15 +1,14 @@
 angular
   .module('ironalumni')
-  .controller('CourseFormCtrl', ['$scope', '$routeParams', 'Course', function($scope, $routeParams, Course) {
+  .controller('CourseFormCtrl', ['$scope', '$rootScope', '$routeParams', 'Course', function($scope, $rootScope, $routeParams, Course) {
     'use strict';
 
     $scope.newCourse = function() {
       var course = new Course($scope.course);
       course.$save().then(function(course) {
-        // handle success
+        $rootScope.notification = { message: 'Course successfully created', type: 'success' };
       }, function(err) {
-        // handle error
-        console.log(err);
+        $rootScope.notification = { message: 'Something went wrong', type: 'error' };
       });
     };
   }]);
