@@ -10,7 +10,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'refills'
-gem 'bower-rails'
+gem 'angular_rails_csrf'
 gem 'uglifier', '>= 1.3.0'
 
 # Use jquery as the JavaScript library
