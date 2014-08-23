@@ -12,7 +12,7 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| -%>
         <%= f.text_field :email, placeholder: 'Email' %>
         <%= f.password_field :password, placeholder: 'Password' %>
-        <%= f.submit "Sign in", :disable_with => 'Signing in...' %>
+        <%= f.submit "Sign in", disable_with: 'Signing in...' %>
       <% end -%>
     </div>
   </div>
