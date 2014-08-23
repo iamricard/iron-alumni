@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    angular_rails_csrf (1.0.1)
+      rails (>= 3, < 5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bitters (0.10.0)
@@ -37,7 +39,6 @@ GEM
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
-    bower-rails (0.8.3)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -145,7 +146,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.3)
+    turbolinks (2.3.0)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -163,9 +164,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular_rails_csrf
   bitters
   bourbon
-  bower-rails
   devise
   jbuilder (~> 2.0)
   jquery-rails
