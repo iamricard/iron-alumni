@@ -1,3 +1,6 @@
+// Custom
+$side-panel-bg-color: #2F3848;
+
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
@@ -20,21 +23,21 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
+// Border color
+$base-border-color: rgba(darken($side-panel-bg-color, 10%), .2);
+
 // Background Color
-$base-background-color: white;
+$base-background-color: #FEFEFE;
 
 // Font Colors
-$base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-font-color: #FEFEFE;
+$base-accent-color: #257BBA;
 
 // Link Colors
 $base-link-color: $base-accent-color;
 $hover-link-color: darken($base-accent-color, 15);
 $base-button-color: $base-link-color;
 $hover-button-color: $hover-link-color;
-
-// Border color
-$base-border-color: $light-gray;
 
 // Flash Colors
 $alert-color: $light-yellow;
