@@ -1,0 +1,62 @@
+$unit: 1.5rem;
+$large-screen: 1200px;
+
+@import 'bourbon';
+@import 'neat/neat';
+@import 'bitters/base';
+@import 'refills/hero';
+
+* { box-sizing: border-box; }
+html { height: 100%; }
+
+body {
+  line-height: $unit;
+  font-size: 100%;
+  color: #333;
+  background-color: darken(#2c3e50, 10%);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a {
+  color: white;
+  &:hover {
+    color: shade(white, 10%);
+  }
+}
+.content {
+  position: relative;
+  height: 100%;
+  @extend .hero-inner;
+  .center {
+    @include position(absolute, -60px 0px 0px 0px);
+    max-width: $unit * 10;
+    max-height: $unit * 10;
+    margin: auto;
+  }
+}
+.logo {
+  @extend .hero-logo;
+  img {
+    width: $unit * 5;
+    height: $unit * 5 !important;
+  }
+}
+
+.big-box {
+  height: 100%;
+  @extend .hero;
+  @include outer-container;
+  background: none;
+  padding-bottom: 0; }
+
+.content-text {
+  @extend .hero-copy;
+}
+
+input[type='submit'] {
+  background-color: #ecf0f1; color: #34495e;
+  &:hover { background-color: #ecf0f1; color: lighten(#34495e, 10%); }
+  @include transition(color .1s ease-in .1s);
+}

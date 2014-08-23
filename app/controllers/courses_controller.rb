@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class CoursesController < PrivateController
   def index
     respond_to do |format|
       format.json { render status: 200, json: Course.all }

@@ -1,0 +1,23 @@
+<% content_for :css do -%>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <%= stylesheet_link_tag 'unauthorized.css', media: 'screen' %>
+<% end -%>
+<div class="big-box">
+  <div class="content">
+  <div class="center">
+    <a href="http://ironhack.com" class="logo">
+      <img src="http://www.ironhack.com/images-ironhack/logo-ironhack.png" alt="IRONHACK ALUMNI">
+    </a>
+    <div class="content-text">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| -%>
+        <%= f.text_field :email, placeholder: 'Email' %>
+        <%= f.password_field :password, placeholder: 'Password' %>
+        <%= f.submit "Sign in", :disable_with => 'Signing in...' %>
+      <% end -%>
+    </div>
+  </div>
+  </div>
+</div>
+<script type="text/javascript">
+  window.location.hash = '';
+</script>

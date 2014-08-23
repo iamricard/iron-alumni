@@ -1,4 +1,4 @@
-class CoursesMemberController < ApplicationController
+class CoursesMemberController < PrivateController
 
   def update
     @course = Course.find_by(id: params[:course_id])

@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class MembersController < PrivateController
 
   def index
     @members = Member.filter(params.slice(:email))

@@ -1,2 +1,2 @@
-class FrontController < ApplicationController
+class FrontController < PrivateController
 end

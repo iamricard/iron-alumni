@@ -1,0 +1,52 @@
+<% content_for :css do -%>
+  <%= stylesheet_link_tag 'application.css', media: 'screen' %>
+<% end -%>
+<div ng-app='ironalumni' class="container">
+  <nav class="side-panel">
+    <div class="card">
+      <div class="card-image" ng-click='goto("/members/" + member.id)'>
+        <img gravatar-image data-gravatar-email='{{ member.email }}' alt="">
+      </div>
+      <div class="card-header" ng-click='goto("/members/" + member.id)'>
+        {{ member.name | uppercase }} {{ member.last_name | uppercase }}
+      </div>
+      <div class="card-copy">
+        {{ member.summary | limitTo: 200 }}
+      </div>
+      <div class="card-stats">
+        <ul>
+          <li>{{ member.courses.length || 0 }}<span>Courses</span></li>
+          <li>{{ member.projects.length || 0 }}<span>Projects</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" ng-click='goto("/members")'>
+        <a href='javascript:;'>members</a>
+      </div>
+    </div>
+    <div class="card">
+      <div ng-if='member' class="card-header" ng-click='signout()'>
+        <a href='javascript:;'>sign out</a>
+      </div>
+      <div ng-if='!member' class="card-header" ng-click='goto("/signin")'>
+        <a href='javascript:;'>sign in</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" ng-click='goto("/courses")'>
+        <a href='javascript:;'>courses</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" ng-click='goto("/courses/new")'>
+        <a href='javascript:;'>new course</a>
+      </div>
+    </div>
+  </nav>
+  <ng-view class='content' />
+</div>
+
+<script src='//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.js'></script>
+<%= javascript_include_tag 'application' %>

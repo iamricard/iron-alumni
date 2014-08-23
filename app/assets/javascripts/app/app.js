@@ -14,7 +14,7 @@ angular
     $rootScope.signout = function() {
       Auth.logout().finally(function(oldUser) {
         $rootScope.member = null;
-        $location.path('/');
+        window.location = '/';
       });
     };
   }]);
