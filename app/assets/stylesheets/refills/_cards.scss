@@ -5,16 +5,16 @@
 .card {
   $card-border-color: $base-accent-color;
   $card-border: 2px solid rgba($card-border-color, .5);
-  $card-background: darken($card-border-color, 20%);
+  $card-background: darken($side-panel-bg-color, 2%);
   $card-header-background: $card-background;
-  $card-hover-background: lighten($card-background, 5);
+  $card-hover-background: darken($card-background, 5);
   $card-image-background: #DBD199;
   $card-image-hover-background: lighten($card-image-background, 5);
   $card-stats-color: lighten($base-accent-color, 10);
 
   @include transition (all 0.2s ease-in-out);
   border-radius: $base-border-radius;
-  border: $card-border;
+  background-color: $card-background;
   margin-bottom: $base-line-height;
   cursor: pointer;
   position: relative;
