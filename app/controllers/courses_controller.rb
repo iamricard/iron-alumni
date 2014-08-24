@@ -1,4 +1,6 @@
 class CoursesController < PrivateController
+
+  before_action :admin_action!, only: [:create, :update, :destroy]
   def index
     respond_to do |format|
       format.json { render status: 200, json: Course.all }
@@ -28,6 +30,14 @@ class CoursesController < PrivateController
   end
 
   private
+  def admin_action!
+    if not current_member.has_role?('admin')
+      respond_to do |format|
+        format.json { render status: 422, json: 'Only an admin can perform this action' }
+      end
+    end
+  end
+
   def course_params
     params.require(:course).permit(:type, :city, :start_date, :end_date)
   end

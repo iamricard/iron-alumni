@@ -22,7 +22,7 @@ angular
       controller: 'CourseDetailCtrl',
       templateUrl: '../templates/courseDetailTpl.html'
     }).otherwise({
-      redirectTo: '/signin'
+      redirectTo: '/members'
     });
 
     AuthProvider.loginPath('/members/sign_in.json');
