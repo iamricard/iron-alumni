@@ -31,7 +31,7 @@ class CoursesController < PrivateController
 
   private
   def course_params
-    params.require(:course).permit(:type, :city, :start_date, :end_date)
+    params.require(:course).permit(:course_type, :city, :start_date, :end_date)
   end
 
 end
