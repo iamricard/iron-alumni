@@ -1,0 +1,25 @@
+<% content_for :css do -%>
+  <%= stylesheet_link_tag 'application.css', media: 'screen' %>
+<% end -%>
+
+<%= form_for @course, url: create_course_admin_path do |f| -%>
+  <div class="form-group">
+    <%= f.label :course_type, "Type" %>
+    <%= f.select :course_type, options_for_select(['web', 'mobile'], selected: 'web') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, "City" %>
+    <%= f.select :city, options_for_select(['barcelona', 'madrid', 'miami'], selected: 'barcelona') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date, "Starting date" %>
+    <%= f.date_field :start_date %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date, "End date" %>
+    <%= f.date_field :end_date %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+  </div>
+<% end -%>

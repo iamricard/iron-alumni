@@ -17,10 +17,12 @@ class Member < ActiveRecord::Base
   end
 
   def role_names
-    @role_names ||= self.roles.map(&:map)
+    @role_names ||= self.roles.map { |role| role.role_name }
   end
 
-  def role=(role)
-    self.roles << Role.find_or_create_by_name(role)
+  def add_roles(roles)
+    roles.each do |role|
+      self.roles << Role.find_or_create_by!(role_name: role)
+    end
   end
 end
