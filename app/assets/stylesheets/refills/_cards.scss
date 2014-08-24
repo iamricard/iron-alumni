@@ -3,26 +3,24 @@
 }
 
 .card {
-  $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-  $card-background: lighten($card-border-color, 10);
+  $card-border-color: $base-accent-color;
+  $card-border: 2px solid rgba($card-border-color, .5);
+  $card-background: darken($side-panel-bg-color, 2%);
   $card-header-background: $card-background;
-  $card-hover-background: lighten($card-background, 5);
+  $card-hover-background: darken($card-background, 5);
   $card-image-background: #DBD199;
   $card-image-hover-background: lighten($card-image-background, 5);
   $card-stats-color: lighten($base-accent-color, 10);
 
   @include transition (all 0.2s ease-in-out);
-  background-color: $card-background;
   border-radius: $base-border-radius;
-  border: $card-border;
+  background-color: $card-background;
   margin-bottom: $base-line-height;
   cursor: pointer;
-  box-shadow: 0 2px 4px darken($base-body-color, 10);
   position: relative;
 
   @include media($large-screen) {
-    @include span-columns(4);  
+    @include span-columns(4);
     @include omega(3n);
   }
 
@@ -66,8 +64,9 @@
 
   .card-header {
     @include transition (all 0.2s ease-in-out);
-    background-color: $card-header-background;
-    border-bottom: $card-border;
+    color: $base-font-color;
+    // background-color: $card-header-background;
+    // border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
     padding: $base-line-height/3 $gutter/2;
@@ -112,11 +111,11 @@
 
   &:hover {
     background-color: $card-hover-background;
-    
+
     .card-image img {
       background: $card-image-hover-background;
     }
-  
+
     .card-header {
       background-color: $card-hover-background;
     }

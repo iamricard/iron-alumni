@@ -1,9 +1,11 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "angular": "1.2.22",
+    "angular": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
-    "angular-devise": "latest"
+    "angular-devise": "latest",
+    "angular-animate": "~1.2.23",
+    "pace": "~0.5.6"
   }
 }

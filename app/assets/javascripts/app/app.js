@@ -1,5 +1,5 @@
 angular
-  .module('ironalumni', ['ngRoute', 'ngResource', 'Devise'])
+  .module('ironalumni', ['ngRoute', 'ngResource', 'ngAnimate', 'Devise'])
   .run(['$rootScope', '$location', 'Auth', function($rootScope, $location, Auth) {
     Auth.currentUser().then(function(member) {
       $rootScope.member = member;
@@ -11,6 +11,10 @@ angular
     $rootScope.$on('devise:unauthorized', function(event, xhr, deferred) {
       if (xhr.status === 401) window.location = '/';
     });
+
+    $rootScope.dismissNotification = function() {
+      $rootScope.notification = null;
+    };
 
     $rootScope.goto = function(path) {
       $location.path(path);
