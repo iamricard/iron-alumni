@@ -1,0 +1,12 @@
+<% content_for :css do -%>
+  <%= stylesheet_link_tag 'application.css', media: 'screen' %>
+<% end -%>
+<%= form_tag(create_members_admin_path, method: 'post') do %>
+  <div class="form-group">
+    <%= label_tag :email_list, "Email list" %>
+    <%= text_area_tag :email_list %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Submit", disable_with: 'Submiting...' %>
+  </div>
+<% end -%>

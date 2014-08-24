@@ -1,4 +1,6 @@
 class CoursesController < PrivateController
+
+  before_action :admin_action!, only: [:create, :update, :destroy]
   def index
     respond_to do |format|
       format.json { render status: 200, json: Course.all }

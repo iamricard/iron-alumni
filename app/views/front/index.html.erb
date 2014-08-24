@@ -11,9 +11,6 @@
       <div class="card-header" ng-click='goto("/members/" + member.id)'>
         {{ member.name | uppercase }} {{ member.last_name | uppercase }}
       </div>
-      <div class="card-copy">
-        {{ member.summary | limitTo: 200 }}
-      </div>
       <div class="card-stats">
         <ul>
           <li>{{ member.courses.length || 0 }}<span>Courses</span></li>
