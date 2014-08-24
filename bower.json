@@ -5,6 +5,7 @@
     "angular-route": "latest",
     "angular-resource": "latest",
     "angular-devise": "latest",
-    "angular-animate": "~1.2.23"
+    "angular-animate": "~1.2.23",
+    "pace": "~0.5.6"
   }
 }
