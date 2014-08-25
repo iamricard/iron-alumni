@@ -28,10 +28,12 @@ class Member < ActiveRecord::Base
 
   def self.find_or_create(email, password = generate_password)
     member = find_by(email: email)
-    create!(email: email, password: password) if member.nil?
+    member = create!(email: email, password: password) if member.nil?
+    member
   end
 
   def self.generate_password
     '12345678' # Devise.friendly_token.first(8)
   end
+
 end
