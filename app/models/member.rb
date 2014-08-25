@@ -25,4 +25,18 @@ class Member < ActiveRecord::Base
       self.roles << Role.find_or_create_by!(role_name: role)
     end
   end
+
+  def self.find_or_create(email, password = generate_password)
+    member = self.find_by(email: email)
+    if member.nil?
+      member = self.create(email: email, password: password)
+    end
+    member
+  end
+
+  private
+  def self.generate_password
+    generated_password = '12345678' # Devise.friendly_token.first(8)
+  end
+
 end
