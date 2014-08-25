@@ -4,11 +4,9 @@ class PrivateController < ApplicationController
   private
 
   def admin_action!
-    unless current_member.has_role?('admin')
-      respond_to do |format|
-        format.html { redirect_to '/' }
-        format.json { render status: 422, json: 'Only an admin can perform this action' }
-      end
-    end
+    respond_to do |format|
+      format.html { redirect_to '/' }
+      format.json { render status: 422, json: 'Only an admin can perform this action' }
+    end unless current_member.has_role?('admin')
   end
 end
