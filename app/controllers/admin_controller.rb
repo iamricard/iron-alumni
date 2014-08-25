@@ -15,17 +15,22 @@ class AdminController < PrivateController
   end
 
   def new_members
+    redirect_to(new_course_admin_path) if Course.find_by(id: params[:id]).nil?
     @members = {}
   end
 
   def create_members
-    course = Course.find_by(id: params[:id])
-    email_list = params[:email_list].split(/,\s+/)
-    email_list.each do |email|
-      member = Member.find_or_create(email, generated_password)
-      course.members << member
+    @course = Course.find_by(id: params[:id])
+    unless @course.nil?
+      email_list = params[:email_list].split(/,\s+/)
+      email_list.each do |email|
+        member = Member.find_or_create(email: email)
+        @course.members << member
+      end
+      render 'new_members'
+    else
+      redirect_to new_course_admin_path
     end
-    render 'new_members'
   end
 
   private

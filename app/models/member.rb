@@ -26,14 +26,26 @@ class Member < ActiveRecord::Base
     end
   end
 
-  def self.find_or_create(email, password = generate_password)
-    member = find_by(email: email)
-    member = create!(email: email, password: password) if member.nil?
+  def self.find_or_create(opts)
+    opts[:password] ||= generate_password
+    member = find_by(email: opts[:email])
+    member = create!(email: opts[:email], password: opts[:password]) if member.nil?
     member
   end
 
   def self.generate_password
     '12345678' # Devise.friendly_token.first(8)
+  end
+
+  def password_required?
+    super if confirmed?
+  end
+
+  def password_match?
+    self.errors[:password] << "can't be blank" if password.blank?
+    self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
+    self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+    password == password_confirmation && !password.blank?
   end
 
 end

@@ -1,4 +1,4 @@
-class CustomRegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_member!
 
   def update
