@@ -17,7 +17,7 @@ class Member < ActiveRecord::Base
   end
 
   def role_names
-    @role_names ||= self.roles.map { |role| role.role_name }
+    @role_names ||= roles.map { |role| role.role_name }
   end
 
   def add_roles(roles)
@@ -27,16 +27,16 @@ class Member < ActiveRecord::Base
   end
 
   def self.find_or_create(email, password = generate_password)
-    member = self.find_by(email: email)
+    member = find_by(email: email)
     if member.nil?
-      member = self.create(email: email, password: password)
+      member = create(email: email, password: password)
     end
     member
   end
 
   private
+
   def self.generate_password
     generated_password = '12345678' # Devise.friendly_token.first(8)
   end
-
 end

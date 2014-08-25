@@ -1,5 +1,4 @@
 class MembersController < PrivateController
-
   def index
     @members = Member.filter(params.slice(:email))
     respond_to do |format|
@@ -13,5 +12,4 @@ class MembersController < PrivateController
       format.json { render json: @member }
     end
   end
-
 end

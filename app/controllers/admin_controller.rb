@@ -1,5 +1,4 @@
 class AdminController < PrivateController
-
   before_action :admin_action!
 
   def new_course
@@ -16,7 +15,7 @@ class AdminController < PrivateController
   end
 
   def new_members
-    @members = Hash.new
+    @members = {}
   end
 
   def create_members
@@ -30,8 +29,8 @@ class AdminController < PrivateController
   end
 
   private
+
   def course_params
     params.require(:course).permit(:course_type, :city, :start_date, :end_date)
   end
-
 end

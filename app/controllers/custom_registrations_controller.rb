@@ -6,8 +6,8 @@ class CustomRegistrationsController < Devise::RegistrationsController
 
     # required for settings form to submit when password is left blank
     if params[:custom_registration][:password].blank?
-      params[:custom_registration].delete("password")
-      params[:custom_registration].delete("password_confirmation")
+      params[:custom_registration].delete('password')
+      params[:custom_registration].delete('password_confirmation')
     end
 
     respond_to do |format|
@@ -16,7 +16,7 @@ class CustomRegistrationsController < Devise::RegistrationsController
         @member.save
 
         # sign the member in with their new password so it doesn't redirect to the login screen
-        sign_in @member, :bypass => true
+        sign_in @member, bypass: true
 
         format.json { head :no_content }
       else
@@ -26,8 +26,8 @@ class CustomRegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def member_attributes
     params.require(:custom_registration).permit(:name, :last_name, :email, :summary)
   end
-
 end
