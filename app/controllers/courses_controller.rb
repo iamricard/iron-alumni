@@ -1,5 +1,4 @@
 class CoursesController < PrivateController
-
   before_action :admin_action!, only: [:create, :update, :destroy]
   def index
     respond_to do |format|
@@ -8,7 +7,7 @@ class CoursesController < PrivateController
   end
 
   def show
-    @course = Course.find_by(id: params[:id]).to_json(:include => :members)
+    @course = Course.find_by(id: params[:id]).to_json(include: :members)
     respond_to do |format|
       if @course
         format.json { render status: 200, json: @course }
@@ -30,8 +29,8 @@ class CoursesController < PrivateController
   end
 
   private
+
   def course_params
     params.require(:course).permit(:course_type, :city, :start_date, :end_date)
   end
-
 end

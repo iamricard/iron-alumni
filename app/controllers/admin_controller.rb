@@ -1,5 +1,4 @@
 class AdminController < PrivateController
-
   before_action :admin_action!
 
   def new_course
@@ -16,27 +15,22 @@ class AdminController < PrivateController
   end
 
   def new_members
-    @members = Hash.new
+    @members = {}
   end
 
   def create_members
     course = Course.find_by(id: params[:id])
     email_list = params[:email_list].split(/,\s+/)
     email_list.each do |email|
-      member = Member.find_by(email: email)
-      if member.nil?
-        generated_password = '12345678' # Devise.friendly_token.first(8)
-        member = Member.create!(email: email, password: generated_password)
-      end
-
+      member = Member.find_or_create(email, generated_password)
       course.members << member
     end
     render 'new_members'
   end
 
   private
+
   def course_params
     params.require(:course).permit(:course_type, :city, :start_date, :end_date)
   end
-
 end
