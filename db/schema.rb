@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20140824171319) do
 
   create_table "courses", force: true do |t|
     t.string   "course_type", default: "web",                 null: false
-    t.datetime "start_date",  default: '2014-08-25 19:13:08', null: false
-    t.datetime "end_date",    default: '2014-10-25 19:13:08', null: false
+    t.datetime "start_date",  default: '2014-08-26 10:24:09', null: false
+    t.datetime "end_date",    default: '2014-10-26 11:24:09', null: false
     t.string   "city",        default: "barcelona",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
