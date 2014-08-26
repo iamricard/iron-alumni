@@ -7,6 +7,6 @@ class PrivateController < ApplicationController
     respond_to do |format|
       format.html { redirect_to '/' }
       format.json { render status: 422, json: 'Only an admin can perform this action' }
-    end unless current_member.has_role?('admin')
+    end unless current_member.role?('admin')
   end
 end

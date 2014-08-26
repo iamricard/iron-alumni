@@ -12,7 +12,12 @@ class Member < ActiveRecord::Base
 
   scope :email, -> (email) { where email: email }
 
-  def has_role?(role)
+  # need to create a scope that filters alumni, but I give up for now
+  def alumni?
+    courses.count > 0
+  end
+
+  def role?(role)
     role_names.include? role
   end
 

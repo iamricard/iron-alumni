@@ -1,3 +1,8 @@
-<ul ng-repeat='member in members'>
+Available filters:
+<p ng-click='filterByCourse()'>clear</p>
+<div ng-repeat='course in courses'>
+  <p ng-click='filterByCourse(course)'>{{ course.course_type }} - {{ course.city }} - {{ course.start_date | date: 'longDate' }}</p>
+</div>
+<ul ng-repeat='member in course.members'>
   <li><a href="javascript:;" ng-click='goto("/members/" + member.id)'>{{ member.email }}</a></li>
 </ul>
