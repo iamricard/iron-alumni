@@ -3,42 +3,7 @@
 <% end -%>
 <div ng-app='ironalumni' class="container">
   <%= render 'message' %>
-  <nav class="side-panel">
-    <div class="card">
-      <div class="card-image" ng-click='goto("/members/" + member.id)'>
-        <img gravatar-image data-gravatar-email='{{ member.email }}' alt="">
-      </div>
-      <div class="card-header" ng-click='goto("/members/" + member.id)'>
-        {{ member.name | uppercase }} {{ member.last_name | uppercase }}
-      </div>
-      <div class="card-stats">
-        <ul>
-          <li>{{ member.courses.length || 0 }}<span>Courses</span></li>
-          <li>{{ member.projects.length || 0 }}<span>Projects</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/members")'>
-        <a href='javascript:;'>members</a>
-      </div>
-    </div>
-    <div class="card">
-      <div ng-if='member' class="card-header" ng-click='signout()'>
-        <a href='javascript:;'>sign out</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/courses")'>
-        <a href='javascript:;'>courses</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/courses/new")'>
-        <a href='javascript:;'>new course</a>
-      </div>
-    </div>
-  </nav>
+  <%= render 'side_panel' %>
   <div class="main-container">
     <ng-view class='content' />
   </div>

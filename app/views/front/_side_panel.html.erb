@@ -1,0 +1,19 @@
+<nav class="side-panel">
+  <ul class='menu'>
+    <li ng-click='goto("/members/" + member.id)'>
+      <a href='javascript:;'>Signed in as {{ member.name }} {{ member.last_name }}</a>
+    </li>
+    <li ng-click='goto("/members")'>
+      <div class="overlay"></div>
+      <a href='javascript:;'>members</a>
+    </li>
+    <li ng-click='goto("/courses")'>
+      <div class="overlay"></div>
+      <a href='javascript:;'>courses</a>
+    </li>
+    <li ng-if='member' ng-click='signout()'>
+      <div class="overlay"></div>
+      <a href='javascript:;'>sign out</a>
+    </li>
+  </ul>
+</nav>
