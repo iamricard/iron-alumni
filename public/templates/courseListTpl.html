@@ -1,5 +1,11 @@
-<ul ng-repeat='course in courses'>
-  <li>
-    <a href="javascript:;" ng-click='goto("/courses/" + course.id)' ng-disabled>{{ course.course_type }} - {{ course.city }}</a>
-  </li>
-</ul>
+<material-list>
+  <material-item ng-repeat="course in courses" ng-click='goto("/courses/" + course.id)' style='cursor: pointer;'>
+    <div class="material-tile-content">
+      <h2>{{ course.course_type }}</h2>
+      <h3>{{ course.city }}</h3>
+      <p>
+        {{ course.start_date | date: 'longDate' }} - {{ course.end_date | date: 'longDate' }}
+      </p>
+    </div>
+  </material-item>
+</material-list>

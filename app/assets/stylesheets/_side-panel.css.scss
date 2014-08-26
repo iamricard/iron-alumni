@@ -1,11 +1,11 @@
 @mixin items-transition {
   @include transition(125ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity);
 }
-$border: 1px solid rgba($base-font-color, .2);
+$border: 3px solid #E6344A;
 
 .side-panel {
-  background-color: $side-panel-bg-color;
-  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.3);
+  // background-color: $side-panel-bg-color;
+  // box-shadow: 5px 0 5px rgba(0, 0, 0, 0.3);
 
   .card {
     @include calc(width, '100% - #{$base-unit}');
@@ -15,41 +15,27 @@ $border: 1px solid rgba($base-font-color, .2);
 
 .side-panel .menu {
   li {
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-    height: $unit * 2;
+    color: $side-panel-bg-color;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(0, 0, 0, 0.2);
+    margin: $unit / 2 auto;
     position: relative;
     padding: $unit / 2;
     display: block;
-    width: 100%;
-    border-top: $border;
-    border-right: $border;
-    &:first-child { border-top: none; }
-    &:last-child  { border-bottom: $border; }
+    width: 90%;
+    // border-bottom: $border;
     a:not(:first-child) {
       font-weight: bold;
       position: relative; z-index: 1; }
-    .overlay {
-      @include items-transition;
-      z-index: 0;
-      background-color: darken($side-panel-bg-color, 10%);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      height: 100%;
-    }
-
     &:hover { cursor: pointer; }
-    &:not(:first-child):hover .overlay {
-      opacity: 1;
-    }
   }
 
   a {
-    color: $base-font-color;
+    color: lighten(#000, 60%);
     &:hover {
-      color: darken($base-font-color, 10%);
+      color: lighten(#000, 55%);
     }
   }
 }
+
+.current{ border-bottom: $border; }

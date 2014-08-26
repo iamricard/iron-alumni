@@ -1,19 +1,25 @@
-<nav class="side-panel">
-  <ul class='menu'>
-    <li ng-click='goto("/members/" + member.id)'>
-      <a href='javascript:;'>Signed in as {{ member.name }} {{ member.last_name }}</a>
-    </li>
-    <li ng-click='goto("/members")'>
-      <div class="overlay"></div>
-      <a href='javascript:;'>members</a>
-    </li>
-    <li ng-click='goto("/courses")'>
-      <div class="overlay"></div>
-      <a href='javascript:;'>courses</a>
-    </li>
-    <li ng-if='member' ng-click='signout()'>
-      <div class="overlay"></div>
-      <a href='javascript:;'>sign out</a>
-    </li>
-  </ul>
-</nav>
+<material-sidenav class="material-sidenav-left" component-id="left">
+
+  <material-toolbar class="material-theme-indigo">
+    <h1 class="material-toolbar-tools">Signed in as {{ member.name }}</h1>
+  </material-toolbar>
+
+  <material-content layout='vertical' class="material-content-padding">
+    <material-button class="material-button-colored" ng-click='goto("/members/" + member.id)'>
+      MY PROFILE
+    </material-button>
+    <material-button class="material-button-colored" ng-click='goto("/members")'>
+      MEMBERS
+    </material-button>
+    <material-button class="material-button-colored" ng-click='goto("/courses")'>
+      COURSES
+    </material-button>
+    <material-button class="material-button-colored" ng-if='member' ng-click='signout()'>
+      SIGN OUT
+    </material-button>
+    <material-button ng-click="closeSidenav()" class hide-md>
+      Close menu
+    </material-button>
+  </material-content>
+
+</material-sidenav>

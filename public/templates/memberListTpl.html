@@ -1,8 +1,16 @@
-Available filters:
-<p ng-click='filterByCourse()'>clear</p>
-<div ng-repeat='course in courses'>
-  <p ng-click='filterByCourse(course)'>{{ course.course_type }} - {{ course.city }} - {{ course.start_date | date: 'longDate' }}</p>
-</div>
-<ul ng-repeat='member in course.members'>
-  <li><a href="javascript:;" ng-click='goto("/members/" + member.id)'>{{ member.email }}</a></li>
-</ul>
+<material-button ng-click='filterByCourse()' class='material-button-raised'>ALL</material-button>
+<material-button ng-click='filterByCourse(course)' ng-repeat='course in courses' class="material-button-raised {{ styles[course.course_type] }}">
+  {{ course.city | uppercase | limitTo: 3 }} {{ course.start_date | date: "MMM yyyy" }}
+</material-button>
+
+<material-list>
+  <material-item ng-repeat="member in course.members">
+    <div class="material-tile-content">
+      <h2>{{ member.name }} {{ member.last_name }}</h2>
+      <h3>{{ member.email }}</h3>
+      <p>
+        {{ member.summary }}
+      </p>
+    </div>
+  </material-item>
+</material-list>

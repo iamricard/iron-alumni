@@ -1,13 +1,20 @@
 <% content_for :css do -%>
   <%= stylesheet_link_tag 'application.css', media: 'screen' %>
 <% end -%>
-<div ng-app='ironalumni' class="container">
+<section layout='horizontal' layout-fill>
   <%= render 'message' %>
   <%= render 'side_panel' %>
-  <div class="main-container">
-    <ng-view class='content' />
-  </div>
-</div>
+  <material-content flex class="material-content-padding">
+    <!-- <section layout="vertical" layout-sm="horizontal" layout-align="center center" style="height: 92px;margin-top: 0px;"> -->
+      <material-button ng-click="openSidenav()" class="material-button-fab" hide-md>
+        <material-icon icon="/img/icons/burger28x28.ico" style="width: 28px; height: 28px;"></material-icon>
+      </material-button>
+    <!-- </section> -->
+    <div layout='vertical' layout-fill>
+      <ng-view />
+    </div>
+  </material-content>
+</section>
 
 <script src='//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.js'></script>
