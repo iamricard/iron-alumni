@@ -33,12 +33,14 @@ end
 USERS = 100
 puts "Creating #{USERS} Users ..."
 USERS.times do
-  STATES = [Time.now, nil]
+  STATES = [Time.now]
   member = Member.create!(name: Faker::Name.first_name,
                           last_name: Faker::Name.last_name,
                           email: Faker::Internet.free_email,
                           password: Faker::Internet.password,
-                          confirmed_at: STATES.sample)
+                          confirmed_at: STATES.sample,
+                          summary: Faker::Lorem.paragraphs(3).join("\n"),
+                          employer: Faker::Company.name)
   member.add_roles(%w(student))
   courses.sample.members << member
 end

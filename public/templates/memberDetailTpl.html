@@ -1,23 +1,31 @@
-<form ng-submit='updateAttrs(member)'>
-  <div class="form-group">
-    <input type="text" ng-model='member.name' placeholder='name' />
-  </div>
+<material-content layout='horizontal' layout-fill>
+  <form ng-submit='updateAttrs(member)' layout-padding>
+    <div layout='horizontal'>
+      <material-input-group class="material-input-group-theme-light">
+        <label for='i1'>Name</label>
+        <material-input id='i1' type="text" ng-model='member.name'>
+      </material-input-group>
+      <span flex></span>
+      <material-input-group class="material-input-group-theme-light">
+        <label for='i2'>Surname</label>
+        <material-input id='i2' type="text" ng-model='member.last_name'/>
+      </material-input-group>
+    </div>
 
-  <div class="form-group">
-    <input type="text" ng-model='member.last_name' placeholder='surname' />
-  </div>
+    <material-input-group class="material-input-group-theme-light">
+      <label for='i3'>Email</label>
+      <material-input id='i3' type="text" ng-model='member.email'/>
+    </material-input-group>
 
-  <div class="form-group">
-    <input type="text" ng-model='member.email' placeholder='email' />
-  </div>
+    <label for="i4">Summary</label>
+    <textarea id='i4' ng-model='member.summary' rows='10' cols='50' style='width: auto; height: auto; background-color: #eee;'></textarea>
 
-  <div class="form-group">
-    <textarea ng-model='member.summary' placeholder='summary'></textarea>
-  </div>
+    <material-input-group class="material-input-group-theme-light">
+      <label for='i5'>Password</label>
+      <material-input id='i5' type="password" ng-model='member.current_password' />
+    </material-input-group>
 
-  <div class="form-group">
-    <input type="password" ng-model='member.current_password' placeholder='password'>
-  </div>
-
-  <input type='submit' value='update' />
-</form>
+    <material-input type='submit' value='update' />
+  </form>
+  </material-card>
+</material-content>

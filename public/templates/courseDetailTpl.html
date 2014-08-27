@@ -1,7 +1,26 @@
-<p>Course type: {{ course.course_type }}</p>
-<p>Course location: {{ course.city }}</p>
-<p>Dates: {{ course.start_date | date: 'longDate' }} - {{ course.end_date | date: 'longDate' }}</p>
-<input type='text' placeholder="new member's email" ng-model='newMember'><button ng-click='addMember()'>add</button>
-<ul ng-repeat='(key, value) in course.members'>
-  <li>{{ value }}</li>
-</ul>
+<material-card style='padding: 0;'>
+  <material-toolbar layout='vertical' class='material-whiteframe-z1'>
+    <div class='material-toolbar-tools {{ styles[course.course_type] }}'>
+      <b>{{ course.course_type }}</b> bootcamp
+      in <b>{{ course.city }}</b>
+    </div>
+    <div class="material-toolbar-tools {{ styles[course.course_type] }}">
+      <span style='font-size: 14px;'>from <i>{{ course.start_date | date: 'longDate' }}</i> to <i>{{ course.end_date | date: 'longDate' }}</i></span>
+    </div>
+  </material-toolbar>
+  <material-content class='material-content-padding'>
+    <material-list>
+
+      <material-item ng-repeat="member in course.members">
+        <div class="material-tile-content">
+          <h2>{{ member.name }} {{ member.last_name }}</h2>
+          <h3>{{ member.email }}</h3>
+          <p>
+            {{ member.summary }}
+          </p>
+        </div>
+      </material-item>
+
+    </material-list>
+  </material-content>
+</material-card>

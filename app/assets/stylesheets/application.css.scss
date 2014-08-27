@@ -1,34 +1,54 @@
 /*
- *= require pace/themes/red/pace-theme-flat-top
+ *= require pace/themes/blue/pace-theme-minimal
+ *= require material/angular-material
  *= require_self
  */
 $unit: 1.5rem;
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
 @import 'bourbon';
-@import 'neat/neat';
-@import 'bitters/base';
+@import 'bitters/variables';
 @import 'variables';
-@import 'refills/import';
 @import 'notifications';
-@import 'side-panel';
-@import 'layout';
 
 * { box-sizing: border-box; }
 html { height: 100%; }
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: $unit;
   font-size: 100%;
-  color: #333;
-  background-color: lighten(#000, 97%);
   margin: 0;
   padding: 0;
   height: 100%;
 }
+.material-button-raised,
+.material-button-raised.section material-button,
+section .material-button,
+material-button.big {
+  display: inline-block;
+  width: 9em;
+  margin: .3em;
+  line-height: 25px;
+}
 
-.card-image {
-  max-height: 230px !important;
-  height: 230px;
-  width: 100%;
-  margin: 0 auto;
+.material-button-fab { z-index: 99 !important; position: fixed; right: 28px; background-color: white; }
+.material-sidenav-left .material-button-colored {
+  color: white;
+  &:hover{
+    background-color: rgba(white, .2);
+  }
+}
+
+.material-theme-light-green {
+  @extend .material-theme-green;
+  padding: $unit / 2 $unit / 2;
+  height: auto;
+  color: white;
+  background-color: tint(#0f9d58, 3%) !important;
+}
+
+.face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px;
 }

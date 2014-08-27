@@ -1,10 +1,11 @@
 // Custom
-$side-panel-bg-color: #2F3848;
+$side-panel-bg-color: #04779B;
+$card-background-color: white;
 
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
-$base-font-family: $sans-serif;
+$base-font-family: 'Roboto', sans-serif;;
 $header-font-family: $base-font-family;
 
 // Sizes
@@ -32,6 +33,7 @@ $base-background-color: #FEFEFE;
 // Font Colors
 $base-font-color: #FEFEFE;
 $base-accent-color: #257BBA;
+$base-alternate-color: shade(#FCD25A, 5%);
 
 // Link Colors
 $base-link-color: $base-accent-color;

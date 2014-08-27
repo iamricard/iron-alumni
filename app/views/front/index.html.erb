@@ -1,48 +1,20 @@
 <% content_for :css do -%>
   <%= stylesheet_link_tag 'application.css', media: 'screen' %>
 <% end -%>
-<div ng-app='ironalumni' class="container">
+<section layout='horizontal' layout-fill>
   <%= render 'message' %>
-  <nav class="side-panel">
-    <div class="card">
-      <div class="card-image" ng-click='goto("/members/" + member.id)'>
-        <img gravatar-image data-gravatar-email='{{ member.email }}' alt="">
-      </div>
-      <div class="card-header" ng-click='goto("/members/" + member.id)'>
-        {{ member.name | uppercase }} {{ member.last_name | uppercase }}
-      </div>
-      <div class="card-stats">
-        <ul>
-          <li>{{ member.courses.length || 0 }}<span>Courses</span></li>
-          <li>{{ member.projects.length || 0 }}<span>Projects</span></li>
-        </ul>
-      </div>
+  <%= render 'side_panel' %>
+  <material-content flex class="material-content-padding">
+    <!-- <section layout="vertical" layout-sm="horizontal" layout-align="center center" style="height: 92px;margin-top: 0px;"> -->
+      <material-button ng-click="openSidenav()" class="material-button-fab" hide-md>
+        <material-icon icon="/img/icons/burger24x24.ico" style="width: 28px; height: 28px;"></material-icon>
+      </material-button>
+    <!-- </section> -->
+    <div layout='vertical' layout-fill>
+      <ng-view />
     </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/members")'>
-        <a href='javascript:;'>members</a>
-      </div>
-    </div>
-    <div class="card">
-      <div ng-if='member' class="card-header" ng-click='signout()'>
-        <a href='javascript:;'>sign out</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/courses")'>
-        <a href='javascript:;'>courses</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" ng-click='goto("/courses/new")'>
-        <a href='javascript:;'>new course</a>
-      </div>
-    </div>
-  </nav>
-  <div class="main-container">
-    <ng-view class='content' />
-  </div>
-</div>
+  </material-content>
+</section>
 
 <script src='//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.js'></script>

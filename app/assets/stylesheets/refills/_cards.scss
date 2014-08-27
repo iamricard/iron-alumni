@@ -5,7 +5,7 @@
 .card {
   $card-border-color: $base-accent-color;
   $card-border: 2px solid rgba($card-border-color, .5);
-  $card-background: darken($side-panel-bg-color, 2%);
+  $card-background: $card-background-color;
   $card-header-background: $card-background;
   $card-hover-background: darken($card-background, 5);
   $card-image-background: #DBD199;
@@ -65,8 +65,8 @@
   .card-header {
     @include transition (all 0.2s ease-in-out);
     color: $base-font-color;
-    // background-color: $card-header-background;
-    // border-bottom: $card-border;
+    background-color: $card-header-background;
+    border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
     padding: $base-line-height/3 $gutter/2;

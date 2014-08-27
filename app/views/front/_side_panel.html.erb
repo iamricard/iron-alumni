@@ -1,0 +1,28 @@
+<material-sidenav class="material-sidenav-left  material-theme-light" component-id="left">
+
+  <material-toolbar class='material-whiteframe-z1' layout-align='center center'>
+    <div class="material-toolbar-tools">
+      <material-icon icon='/img/icons/logo_ironhack48x48.ico' style='height: 48px; width: 48px;'></material-icon>
+      <div>alumni network</div>
+    </div>
+  </material-toolbar>
+
+  <material-content layout='vertical' class="material-content-padding">
+    <material-button class="material-button-colored" ng-click='goto("/profile")'>
+      MY PROFILE
+    </material-button>
+    <material-button class="material-button-colored" ng-click='goto("/members")'>
+      MEMBERS
+    </material-button>
+    <material-button class="material-button-colored" ng-click='goto("/courses")'>
+      COURSES
+    </material-button>
+    <material-button class="material-button-colored" ng-if='member' ng-click='signout()'>
+      SIGN OUT
+    </material-button>
+    <material-button class="material-button-colored" ng-click="closeSidenav()" class hide-md>
+      Close menu
+    </material-button>
+  </material-content>
+
+</material-sidenav>

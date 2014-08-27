@@ -1,0 +1,17 @@
+@mixin tag($accent: black, $background: white) {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  border-radius: em(1);
+  font-weight: bold;
+  padding: $unit / 2;
+  margin: $unit /4;
+  color: lighten(#000, 60%);
+  background-color: $background;
+  border-bottom: 4px solid $accent;
+  display: inline-block;
+
+  &:hover { cursor: pointer; color: lighten(#000, 55%); }
+}
+
+.web { @include tag(#E6344A); }
+
+.mobile { @include tag(#04779B); }
