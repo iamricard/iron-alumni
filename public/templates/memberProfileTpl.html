@@ -1,0 +1,34 @@
+<material-content layout='vertical' layout-align='center center'>
+  <form ng-submit='updateAttrs(member)'>
+    <div layout='horizontal'>
+      <material-input-group class="material-input-group-theme-green">
+        <label for='i1'>Name</label>
+        <material-input id='i1' type="text" ng-model='member.name'>
+      </material-input-group>
+      <span flex></span>
+      <material-input-group class="material-input-group-theme-green">
+        <label for='i2'>Surname</label>
+        <material-input id='i2' type="text" ng-model='member.last_name'/>
+      </material-input-group>
+    </div>
+
+    <material-input-group class="material-input-group-theme-green">
+      <label for='i3'>Email</label>
+      <material-input id='i3' type="text" ng-model='member.email'/>
+    </material-input-group>
+
+    <label for="i4">Summary</label>
+    <textarea class='material-whiteframe-z1' id='i4' ng-model='member.summary' rows='10' style='width: 100%; height: auto;'></textarea>
+
+    <div layout='horizontal'>
+      <material-input-group class="material-input-group-theme-green">
+        <label for='i5'>Password</label>
+        <material-input id='i5' type="password" ng-model='member.current_password' />
+      </material-input-group>
+      <span flex></span>
+    </div>
+  </form>
+  <material-button class='material-button-raised material-theme-green big' ng-click='updateAttrs(member)'>
+    update
+  </material-button>
+</material-content>

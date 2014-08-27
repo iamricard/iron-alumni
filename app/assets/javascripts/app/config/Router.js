@@ -6,6 +6,9 @@ angular
     $routeProvider.when('/signup', {
       controller: 'MemberCtrl',
       templateUrl: '../templates/signup.html'
+    }).when('/profile', {
+      templateUrl: '../templates/memberProfileTpl.html',
+      controller: 'MemberProfileCtrl'
     }).when('/members/:id', {
       controller: 'MemberDetailCtrl',
       templateUrl: '../templates/memberDetailTpl.html'

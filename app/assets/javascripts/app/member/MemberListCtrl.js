@@ -3,7 +3,7 @@ angular
   .controller('MemberListCtrl', ['$scope', 'Member', 'Course', '$location', 'Auth', function($scope, Member, Course, $location, Auth) {
     'use strict';
 
-    $scope.styles = { web: 'material-theme-red', mobile: 'material-button-colored' };
+    $scope.styles = { web: 'material-theme-green', mobile: 'material-button-colored' };
     $scope.course = { members: Member.query() };
     $scope.courses = Course.query();
     $scope.filterByCourse = function(course) {
