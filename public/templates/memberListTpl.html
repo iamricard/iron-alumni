@@ -1,7 +1,24 @@
-<material-button ng-click='filterByCourse()' class='material-button-raised'>ALL</material-button>
-<material-button ng-click='filterByCourse(course)' ng-repeat='course in courses' class="material-button-raised {{ styles[course.course_type] }}">
+<!-- <material-button ng-click='filterByCourse()' class='material-button-raised'>ALL</material-button> -->
+<div>
+Filter by bootcamp:
+<select
+  ng-model='selectedCourse'
+  class='custom-select material-whiteframe-z1'
+  ng-options="formatCourse(c) for c in courses"
+  ng-change="filterByCourse()">
+</select>
+</div>
+<div>
+Filter by employer: <b>NIY</b><!--
+<select
+  ng-model='selectedEmployer'
+  class='custom-select material-whiteframe-z1'
+  ng-options="formatEmployer(e) for e in employers">
+</select> -->
+</div>
+<!-- <material-button ng-click='filterByCourse(course)' ng-repeat='course in courses' class="material-button-raised {{ styles[course.course_type] }}">
   {{ course.city | uppercase | limitTo: 3 }} {{ course.start_date | date: "MMM yyyy" }}
-</material-button>
+</material-button> -->
 
 <material-list>
   <material-item ng-repeat="member in course.members">
@@ -11,7 +28,7 @@
     <div class="material-tile-content">
       <h2>{{ member.name }} {{ member.last_name }}</h2>
       <h3>{{ member.email }}</h3>
-      <h3>Current employer: {{ member.employer.name || 'No employer listed' }}</h3>
+      <h3>Current employer: {{ member.employer.name || 'None listed' }}</h3>
       <p>
         {{ member.summary }}
       </p>

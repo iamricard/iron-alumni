@@ -52,3 +52,12 @@ material-button.big {
   width: 48px;
   margin: 16px;
 }
+
+.custom-select {
+  border: none;
+  margin: .3em;
+  padding : $unit / 4;
+  background-color: transparent;
+
+  &:focus { outline: none; }
+}
