@@ -11,7 +11,7 @@
     <div class="material-tile-content">
       <h2>{{ member.name }} {{ member.last_name }}</h2>
       <h3>{{ member.email }}</h3>
-      <h3>{{ member.employer || 'No employer listed' }}</h3>
+      <h3>Current employer: {{ member.employer.name || 'No employer listed' }}</h3>
       <p>
         {{ member.summary }}
       </p>

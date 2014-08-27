@@ -11,16 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827130141) do
+ActiveRecord::Schema.define(version: 20140827141840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: true do |t|
     t.string   "course_type", default: "web",                 null: false
-    t.datetime "start_date",  default: '2014-08-27 13:09:59', null: false
-    t.datetime "end_date",    default: '2014-10-27 14:09:59', null: false
+    t.datetime "start_date",  default: '2014-08-27 14:32:56', null: false
+    t.datetime "end_date",    default: '2014-10-27 15:32:56', null: false
     t.string   "city",        default: "barcelona",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employers", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140827130141) do
     t.text     "summary"
     t.string   "name"
     t.string   "last_name"
-    t.string   "employer"
+    t.integer  "employer_id"
   end
 
   add_index "members", ["confirmation_token"], name: "index_members_on_confirmation_token", unique: true, using: :btree
