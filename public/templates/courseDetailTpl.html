@@ -1,10 +1,10 @@
 <material-card style='padding: 0;'>
   <material-toolbar layout='vertical' class='material-whiteframe-z1'>
-    <div class='material-toolbar-tools material-theme-green'>
+    <div class='material-toolbar-tools {{ styles[course.course_type] }}'>
       <b>{{ course.course_type }}</b> bootcamp
       in <b>{{ course.city }}</b>
     </div>
-    <div class="material-toolbar-tools material-theme-light-green">
+    <div class="material-toolbar-tools {{ styles[course.course_type] }}">
       <span style='font-size: 14px;'>from <i>{{ course.start_date | date: 'longDate' }}</i> to <i>{{ course.end_date | date: 'longDate' }}</i></span>
     </div>
   </material-toolbar>

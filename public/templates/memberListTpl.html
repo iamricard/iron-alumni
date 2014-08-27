@@ -5,9 +5,13 @@
 
 <material-list>
   <material-item ng-repeat="member in course.members">
+    <div class="material-tile-left">
+      <img gravatar-image data-gravatar-email='{{ member.email }}' class="face">
+    </div>
     <div class="material-tile-content">
       <h2>{{ member.name }} {{ member.last_name }}</h2>
       <h3>{{ member.email }}</h3>
+      <h3>{{ member.employer || 'No employer listed' }}</h3>
       <p>
         {{ member.summary }}
       </p>

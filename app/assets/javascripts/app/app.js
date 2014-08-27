@@ -34,4 +34,13 @@ angular
     $rootScope.closeSidenav = function() {
       $materialSidenav('left').close();
     };
+
+    $rootScope.styles = {
+      web: 'material-theme-green',
+      mobile: 'material-theme-light',
+      highlight: {
+        input: 'material-input-group-theme-light',
+        button: 'material-button-raised material-theme-light'
+      }
+    };
   }]);

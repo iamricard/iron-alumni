@@ -1,5 +1,5 @@
 /*
- *= require pace/themes/yellow/pace-theme-minimal
+ *= require pace/themes/blue/pace-theme-minimal
  *= require material/angular-material
  *= require_self
  */
@@ -44,4 +44,11 @@ material-button.big {
   height: auto;
   color: white;
   background-color: tint(#0f9d58, 3%) !important;
+}
+
+.face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px;
 }

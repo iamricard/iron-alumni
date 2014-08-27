@@ -5,13 +5,13 @@ class RegistrationsController < Devise::RegistrationsController
     @member = Member.find(params[:id])
 
     # required for settings form to submit when password is left blank
-    if params[:custom_registration][:password].blank?
-      params[:custom_registration].delete('password')
-      params[:custom_registration].delete('password_confirmation')
+    if params[:registration][:password].blank?
+      params[:registration].delete('password')
+      params[:registration].delete('password_confirmation')
     end
 
     respond_to do |format|
-      puts params[:custom_registration]
+      puts params[:registration]
       if @member.update_attributes(member_attributes)
         @member.save
 
@@ -28,6 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def member_attributes
-    params.require(:custom_registration).permit(:name, :last_name, :email, :summary)
+    params.require(:registration).permit(:name, :last_name, :email, :summary, :employer)
   end
 end
