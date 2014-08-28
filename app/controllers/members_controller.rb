@@ -7,7 +7,7 @@ class MembersController < PrivateController
   end
 
   def show
-    @member = Member.find_by(id: params[:id])
+    @member = Member.find_by(id: params[:id]).to_json(include: :employer)
     respond_to do |format|
       format.json { render json: @member }
     end

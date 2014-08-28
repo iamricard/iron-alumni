@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   devise_scope :member do
     put '/confirm', to: 'confirmations#confirm', as: 'create_password'
   end
-  resources :members, only: [:index, :show]
-  resources :courses, only: [:index, :show, :create, :update, :update]
+  resources :employers, only: [:index, :show]
+  resources :members,   only: [:index, :show]
+  resources :courses,   only: [:index, :show, :create, :update, :update]
   resources :courses do
     resources :members, controller: 'courses_member', only: [:update]
   end
