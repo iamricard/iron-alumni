@@ -1,5 +1,5 @@
 class AddEmployerToMember < ActiveRecord::Migration
   def change
-    add_column :members, :employer, :string
+    add_column :members, :employer_id, :integer
   end
 end

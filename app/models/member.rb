@@ -5,6 +5,7 @@ class Member < ActiveRecord::Base
   has_many :courses, -> { distinct }, through: :member_course_relations
   has_many :member_roles
   has_many :roles, -> { distinct }, through: :member_roles
+  belongs_to :employer
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,

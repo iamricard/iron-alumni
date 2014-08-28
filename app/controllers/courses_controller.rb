@@ -7,7 +7,7 @@ class CoursesController < PrivateController
   end
 
   def show
-    @course = Course.find_by(id: params[:id]).to_json(include: :members)
+    @course = Course.find_by(id: params[:id]).to_json(include: { members: { include: :employer }})
     respond_to do |format|
       if @course
         format.json { render status: 200, json: @course }

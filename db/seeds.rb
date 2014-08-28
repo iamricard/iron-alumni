@@ -13,6 +13,9 @@ admin_member = Member.create!(name: 'ricard',
                               confirmed_at: Time.now)
 admin_member.add_roles(%w(admin student))
 
+##################
+# CREATE COURSES #
+##################
 COURSES_PROPERTIES = {
   cities: ['barcelona', 'madrid', 'miami'],
   amount: 5,
@@ -30,6 +33,19 @@ COURSES_PROPERTIES[:amount].times do
                             start_date: start_date, end_date: end_date)
 end
 
+####################
+# CREATE EMPLOYERS #
+####################
+EMPLOYERS = 20
+employers = []
+puts "Creating #{EMPLOYERS} Employers ..."
+EMPLOYERS.times do
+  employers << Employer.create!(name: Faker::Company.name)
+end
+
+################
+# CREATE USERS #
+################
 USERS = 100
 puts "Creating #{USERS} Users ..."
 USERS.times do
@@ -39,8 +55,8 @@ USERS.times do
                           email: Faker::Internet.free_email,
                           password: Faker::Internet.password,
                           confirmed_at: STATES.sample,
-                          summary: Faker::Lorem.paragraphs(3).join("\n"),
-                          employer: Faker::Company.name)
+                          summary: Faker::Lorem.paragraphs(3).join("\n"))
   member.add_roles(%w(student))
   courses.sample.members << member
+  employers.sample.members << member if [true, false, true, true].sample
 end

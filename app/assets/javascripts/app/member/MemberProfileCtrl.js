@@ -4,7 +4,6 @@ angular
 
     $scope.member = Member.get({ id: $rootScope.member.id });
     $scope.updateAttrs = function(member) {
-      console.log(member);
       member.$update().then(function(member) {
         $rootScope.notification = { message: 'Profile updated successfully', type: 'success' };
       }, function(err) {
